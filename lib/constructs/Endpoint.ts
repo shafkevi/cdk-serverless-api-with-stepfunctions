@@ -48,7 +48,7 @@ export default class Endpoint extends Construct {
       functionName: id,
       code: Code.fromAsset(path.join(__dirname, "..", "..", "src", "lambda", ...assetPath)),
       runtime: Runtime.PYTHON_3_8,
-      handler: "index.handler",
+      handler: "index.main",
       environment: {
         ...{TABLE_NAME: dynamoTable.tableName},
         ...environment,

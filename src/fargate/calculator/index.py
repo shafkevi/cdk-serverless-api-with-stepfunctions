@@ -12,10 +12,15 @@ def calculate():
 def main():
     print(os.environ)
     task_token = os.getenv("taskToken")
-
-    results = calculate(data)
-    print("results {} ".format(results))
-
+    try:
+        results = calculate()
+        print("results {} ".format(results))
+    except Exception as e:
+        print(e)
+        print("Something went wrong...")
+        results = "error"
+    
+    # TODO: Clean this up to actually send the success/failure accordingly.
     sfn = boto3.client('stepfunctions')
     sfn.send_task_success(
         taskToken=task_token,

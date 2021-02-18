@@ -1,6 +1,6 @@
 # CDK Template
 
-<!-- ![Architecture](architecture.svg) -->
+![Architecture](architecture.svg)
 
 ## Setup
 

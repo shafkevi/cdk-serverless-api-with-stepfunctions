@@ -48,7 +48,7 @@ export default class CalculatorStack extends NestedStack {
       dockerfileLocation: join(__dirname, "../../src/fargate/calculator"),
       repositoryName: "calculator",
       logGroupName: "calculatorLogGroup",
-      resultPath: "$.calculatorValue",
+      resultPath: "$.value",
       integrationPattern: IntegrationPattern.WAIT_FOR_TASK_TOKEN,
       environment: [
         {
@@ -76,11 +76,11 @@ export default class CalculatorStack extends NestedStack {
       codeLocation: join(__dirname, "../../src/lambda/calculator"),
       handler: "index.main",
       runtime: Runtime.PYTHON_3_8,
-      resultPath: "$.calculatorValue",
+      resultPath: "$.value",
     });
 
     const choice = new Choice(this, "Processing Choice");
-    choice.when(Condition.stringEquals('$.processor', 'fargate'), calculatorContainer.task);
+    choice.when(Condition.and(Condition.isNotNull("$.processor"),Condition.stringEquals("$.processor", "fargate")), calculatorContainer.task);
     choice.otherwise(calculatorFunction.task);
     
     // Use .afterwards() to join all possible paths back together and continue

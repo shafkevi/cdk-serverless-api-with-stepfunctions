@@ -1,26 +1,10 @@
-import { join } from "path";
 import { HttpMethod } from "@aws-cdk/aws-apigatewayv2";
 import { Construct, Stack, StackProps, CfnOutput, Duration } from "@aws-cdk/core";
 import Api from "../constructs/Api";
 import Databases from "../constructs/Databases";
 import Endpoint from "../constructs/Endpoint";
 import UserManagement from "../constructs/UserManagement";
-import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
-import { Cluster } from "@aws-cdk/aws-ecs";
-import {
-  IntegrationPattern,
-  JsonPath,
-  Pass,
-  Result,
-  Parallel,
-  Chain,
-  Choice,
-  Condition,
-  StateMachine,
-} from "@aws-cdk/aws-stepfunctions";
-import FargateTask from "../constructs/FargateTask";
-import LambdaTask from "../constructs/LambdaTask";
-import { Vpc } from "@aws-cdk/aws-ec2";
+
 import CalculatorStack from "./CalculatorStack";
 
 export default class AppStack extends Stack {
