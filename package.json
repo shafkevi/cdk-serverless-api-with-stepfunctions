@@ -1,5 +1,5 @@
 {
-  "name": "cdk-template",
+  "name": "cdk-serverless-api-with-stepfunctions",
   "version": "0.1.0",
   "scripts": {
     "build": "./scripts/build.sh",
@@ -7,9 +7,16 @@
     "watch": "npx tsc -w"
   },
   "dependencies": {
-    "@aws-cdk/assert": "^1.74.0",
-    "@aws-cdk/aws-lambda": "^1.88.0",
-    "@aws-cdk/core": "^1.74.0",
+    "@aws-cdk/assert": "^1.89.0",
+    "@aws-cdk/aws-apigatewayv2": "^1.89.0",
+    "@aws-cdk/aws-apigatewayv2-integrations": "^1.89.0",
+    "@aws-cdk/aws-cognito": "^1.89.0",
+    "@aws-cdk/aws-dynamodb": "^1.89.0",
+    "@aws-cdk/aws-ecs": "^1.89.0",
+    "@aws-cdk/aws-lambda": "^1.89.0",
+    "@aws-cdk/aws-stepfunctions": "^1.89.0",
+    "@aws-cdk/aws-stepfunctions-tasks": "^1.89.0",
+    "@aws-cdk/core": "^1.89.0",
     "@types/node": "10.17.27",
     "aws-cdk": "1.72.0",
     "source-map-support": "^0.5.16",
